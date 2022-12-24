@@ -1,0 +1,120 @@
+*
+{
+    margin: 0;
+    padding:0;
+    
+}
+body
+{
+    background-color: black;
+}
+nav
+{
+    background-color: gray;
+    padding: 5px;
+}
+li{
+    list-style: none;
+}
+nav li:first-child
+{
+    flex-basis: 100%;
+}
+ul{
+    display: flex;
+    
+}
+a{
+    text-decoration: none;
+    
+}
+a>h1
+{
+
+    font-size: 30px;
+    background: -webkit-linear-gradient(rgb(242, 42, 199), rgb(24, 5, 130));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.button{
+    padding: 10px;
+    background-image: linear-gradient(60deg, rgb(244, 57, 219) , rgb(0, 4, 255));
+    border: 0;
+    border-radius: 0.5rem;
+    color: white;
+}
+.header-text{
+    font-size: 30px;
+    background: -webkit-linear-gradient(rgb(189, 8, 149), rgb(236, 14, 14));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    padding: 20px;
+}
+.gradient{
+    background: rgb(255,23,228);
+    background: linear-gradient(129deg, rgba(255,23,228,1) 38%, rgba(134,251,251,1) 51%);
+    height: 3px;
+}
+.main-container
+{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+.test-container
+{
+    width: 40%;
+    position: relative;
+    margin: 0 auto;
+}
+
+img{
+    width: 200px;
+}
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f2169a;
+    overflow: hidden;
+    width: 200px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    height: 0;
+    opacity: 0.5;
+    transition: .5s ease;
+}
+.test-container:hover .overlay {
+    height: 50%;
+    
+}
+.overlay h1
+{
+    padding-left: 10px;
+    color: white;
+}
+
+/* Here i start media query */
+
+@media(min-width:850px){
+    nav{
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    nav li:first-child{
+        flex-basis: auto;
+        text-align: left;
+        margin-right: auto;
+    }
+    .main-container
+    {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    
+}
+
+
