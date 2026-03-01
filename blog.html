@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog – Himanshu Singh Tomar. Articles on web dev, AWS, JavaScript, Angular, and AI on DEV Community.">
+    <title>Blog | Himanshu Singh Tomar</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+    <nav class="nav nav-scrolled" id="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>HST<span class="logo-bracket">/&gt;</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Portfolio</a>
+                <a href="https://dev.to/himanshusinghtomar" target="_blank" rel="noopener" class="nav-link">DEV Profile</a>
+                <a href="https://dev.to/himanshusinghtomar" target="_blank" rel="noopener" class="nav-link nav-link-cta">Read on DEV</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="section writing blog-page" id="blog">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">&lt;blog&gt;</span>
+                <h1 class="section-title">All Articles</h1>
+                <p class="section-subtitle">From <a href="https://dev.to/himanshusinghtomar" target="_blank" rel="noopener">dev.to/himanshusinghtomar</a> — web dev, AWS, JavaScript, AI &amp; more</p>
+            </div>
+            
+            <div class="writing-grid" id="writingGrid">
+                <div class="writing-loading" id="writingLoading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <span>Loading articles...</span>
+                </div>
+            </div>
+            
+            <div class="writing-cta">
+                <a href="https://dev.to/himanshusinghtomar" target="_blank" rel="noopener" class="btn btn-outline">
+                    <i class="fab fa-dev"></i>
+                    <span>View all on DEV Community</span>
+                </a>
+            </div>
+            
+            <span class="section-tag section-tag-end">&lt;/blog&gt;</span>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="index.html" class="footer-brand" style="display: inline-block; text-decoration: none; color: inherit;">
+                    <span class="logo-bracket">&lt;</span>HST<span class="logo-bracket">/&gt;</span>
+                </a>
+                <p class="footer-tagline">Back to <a href="index.html" style="color: var(--accent-primary);">portfolio</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        // DEV.to API – fetch all articles (same approach as https://dev.to/nunogois/embed-devto-posts-into-your-own-website-36jj)
+        var DEV_USERNAME = 'himanshusinghtomar';
+        var API_URL = 'https://dev.to/api/articles?username=' + DEV_USERNAME + '&per_page=50';
+        var grid = document.getElementById('writingGrid');
+        var loading = document.getElementById('writingLoading');
+
+        function stripHtml(html) {
+            var tmp = document.createElement('div');
+            tmp.innerHTML = html || '';
+            return (tmp.textContent || tmp.innerText || '').trim();
+        }
+        function formatDate(iso) {
+            if (!iso) return '';
+            var d = new Date(iso);
+            return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        }
+        function escapeHtml(text) {
+            var div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        fetch(API_URL)
+            .then(function(res) { return res.ok ? res.json() : Promise.reject(new Error('Failed to load')); })
+            .then(function(articles) {
+                loading.classList.add('hidden');
+                if (!articles || articles.length === 0) {
+                    grid.innerHTML = '<p class="writing-empty">No posts yet. <a href="https://dev.to/himanshusinghtomar" target="_blank" rel="noopener">Visit DEV profile</a></p>';
+                    return;
+                }
+                grid.innerHTML = articles.map(function(article) {
+                    var desc = stripHtml(article.description || '').slice(0, 160);
+                    var date = formatDate(article.published_at);
+                    var tags = (article.tag_list || []).slice(0, 4);
+                    var tagsHtml = tags.map(function(t) { return '<span>' + escapeHtml(t) + '</span>'; }).join('');
+                    return (
+                        '<a href="' + escapeHtml(article.url) + '" target="_blank" rel="noopener" class="writing-card fade-in">' +
+                        '  <div class="writing-card-header">' +
+                        '    <div class="writing-card-icon"><i class="fas fa-newspaper"></i></div>' +
+                        '    <span class="writing-card-meta">' + escapeHtml(date) + ' · ' + (article.reading_time_minutes || 0) + ' min read</span>' +
+                        '  </div>' +
+                        '  <h3 class="writing-card-title">' + escapeHtml(article.title) + '</h3>' +
+                        '  <p class="writing-card-description">' + escapeHtml(desc) + (desc.length >= 160 ? '…' : '') + '</p>' +
+                        '  <div class="writing-card-tags">' + tagsHtml + '</div>' +
+                        '  <div class="writing-glow"></div>' +
+                        '</a>'
+                    );
+                }).join('');
+
+                var observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) entry.target.classList.add('visible');
+                    });
+                }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+                grid.querySelectorAll('.writing-card').forEach(function(el) { observer.observe(el); });
+            })
+            .catch(function() {
+                loading.classList.add('hidden');
+                grid.innerHTML = '<p class="writing-empty"><i class="fas fa-external-link-alt"></i> <a href="https://dev.to/himanshusinghtomar" target="_blank" rel="noopener">View all posts on DEV Community</a></p>';
+            });
+    })();
+    </script>
+</body>
+</html>
