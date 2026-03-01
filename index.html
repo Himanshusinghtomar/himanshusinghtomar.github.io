@@ -2,95 +2,592 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Himanshu Singh Tomar - Full-Stack Developer & AI-Augmented Engineering Pioneer. Building enterprise banking software with AI tools.">
+    <meta name="keywords" content="AI Developer, Full-Stack Engineer, Claude Code, Cursor, Java, Angular, Spring Boot, RAG, AI Agents">
+    <meta name="author" content="Himanshu Singh Tomar">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Himanshu Singh Tomar | AI-Augmented Developer">
+    <meta property="og:description" content="Full-Stack Developer pioneering AI tool adoption in enterprise banking">
+    <meta property="og:type" content="website">
+    
+    <title>Himanshu Singh Tomar | AI-Augmented Developer</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oxygen+Mono&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <title>Portfolio</title>
-    <link rel="shortcut icon" href="img/smile.png" type="image/x-icon">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
-    <!--Navigation section starts here-->
-    <section id="navbar">
-        <nav>
-            <ul>
-                <li><a href="index.html"><h1><i class="fa-solid fa-face-grin fa-lg"></i> Himanshu Singh Tomar</h1></a></li>
-                <li><a href="#project">Project</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="acoyavs.html">ACOYAVS</a></li>
-                <li><a href="intern.html">Internship</a></li>
-                <li><a href="https://www.linkedin.com/in/himanshu-singh-tomar-107066153/" target="_blank"><i class="fa-brands fa-linkedin fa-lg" aria-hidden="true"></i><span class="sr-only">Linkedin</span></a></li>
-                <li><a href="https://github.com/Himanshusinghtomar" target="_blank"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></a></li>
-                <li><a href="https://docs.google.com/document/d/1kzzf-JOwohIeAPFWRQom5y7SeV0w-PyKPUKEkkSFKk0/edit?usp=sharing" target="_blank" class="button">Resume</a></li>
-            </ul>
-        </nav>
-    </section>
-    <!--
-        Name and what i do section
-    -->
-    <section id="intro">
-        <p>Hi, my name is<span>Himanshu Singh Tomar</span></p>
-        <h1>I am an associate developer</h1>
-        <p>I'm a student who is so Enthusiast in Programming.</p>
-        <p>Currently,i'm working on my website which is hosted on Microsoft Azure Cloud <a href="https://himanshusinghtomar.me" target="_blank">My Website.</a></p>
-    </section>
-    <!--Gradient-->
-    <div class="gradient"></div>
-    <div class="project">
-        <section id="project">
-            <h2>Projects I'm proud of</h2>
-        <article>
-            <div class="text">
-                <h4>Latest Project</h4>
-                <h3>Azure Cloud Web hosting</h3>
-                <p class="blackbox">Deployed an ubuntu server on Azure Cloud and running 'Apache2 Server' for web hosting and hosted my domain from 'Namecheap' on 'Apache2' by editing in apache2 config file.This is my connect my 'VM' using SSh made the ip static so that it can't change after reboot 
-                    <a href="#">Blog Link</a> How i did it.</p>
-                <h4>Technologies used include:</h4>
-                <ul>
-                    <li>Azure Cloud</li>
-                    <li>Ubuntu</li>
-                    <li>Apache2 Server</li>
-                    <li>Frontend/Backend</li>
-                    <li></li>
-                </ul>
+    <!-- Cursor glow effect -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+    
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>HST<span class="logo-bracket">/&gt;</span>
+            </a>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link nav-link-cta">Let's Talk</a>
             </div>
-            <img src="img/pj01.png" alt="ubuntu apache2 server" title="Azure Cloud">
-        </article>
-        </section>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#experience" class="mobile-link">Experience</a>
+        <a href="#projects" class="mobile-link">Projects</a>
+        <a href="#skills" class="mobile-link">Skills</a>
+        <a href="#contact" class="mobile-link">Contact</a>
     </div>
-    <!--Gradient-->
-    <div class="gradient"></div>
-    <!--Contact Section-->
-    <div class="contact">
-        <section id="contact">
-            <h2>Contact me</h2>
-            <p>I'm always interested in hearing about new project</p>
-            <p><a href="mailto:himanshusinghtomar@yahoo.com" class="button">Email me</a></p>
-        </section>
-    </div>
-    <!--Gradient-->
-    <div class="gradient"></div>
-    <!--Top arrow which take you at top of page-->
-    <div class="top"><a href="#navbar"><i class="fa-solid fa-arrow-up"></i></a></div>
-    <footer>
-        <h2>Himanshu Singh Tomar &middot; Tech Enthusiast</h2>
-        <ul>
-            <li><i class="fa-brands fa-linkedin fa-xl"></i></li>
-            <li><i class="fa-brands fa-github-square fa-xl"></i></li>
-            <li><i class="fa-solid fa-envelope-open-text fa-xl"></i></li>
-        </ul>
-        <p>
-            <small>&copy; 2022 Himanshu Singh Tomar. All rights reserved.</small>
-        </p>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="grid-overlay"></div>
+            <div class="gradient-orb gradient-orb-1"></div>
+            <div class="gradient-orb gradient-orb-2"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-terminal">
+                <div class="terminal-header">
+                    <span class="terminal-dot red"></span>
+                    <span class="terminal-dot yellow"></span>
+                    <span class="terminal-dot green"></span>
+                    <span class="terminal-title">himanshu@portfolio:~</span>
+                </div>
+                <div class="terminal-body">
+                    <p class="terminal-line">
+                        <span class="terminal-prompt">$</span> 
+                        <span class="terminal-command">whoami</span>
+                    </p>
+                    <p class="terminal-output typing-effect" id="typingText"></p>
+                </div>
+            </div>
+            
+            <h1 class="hero-name">
+                <span class="name-first">Himanshu</span>
+                <span class="name-last">Singh Tomar</span>
+            </h1>
+            
+            <div class="hero-titles">
+                <span class="hero-title">Full-Stack Developer</span>
+                <span class="title-divider">×</span>
+                <span class="hero-title highlight">AI-Augmented Engineer</span>
+            </div>
+            
+            <p class="hero-description">
+                Pioneering AI tool adoption in enterprise banking. Building with 
+                <span class="tech-highlight">Claude Code</span>, 
+                <span class="tech-highlight">Cursor</span> & 
+                <span class="tech-highlight">LLMs</span>.
+            </p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">Year Journey</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">17</span>
+                    <span class="stat-label">Microservices</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">AI Projects</span>
+                </div>
+            </div>
+            
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">
+                    <span>View Projects</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <span>Get in Touch</span>
+                </a>
+            </div>
+            
+            <div class="hero-scroll">
+                <span>Scroll to explore</span>
+                <div class="scroll-indicator">
+                    <div class="scroll-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">&lt;about&gt;</span>
+                <h2 class="section-title">The Transformation</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-story">
+                    <div class="story-card">
+                        <div class="story-timeline">
+                            <div class="timeline-dot active"></div>
+                            <div class="timeline-line"></div>
+                        </div>
+                        <div class="story-content">
+                            <span class="story-label">Day 1</span>
+                            <h3>Hired as Frontend Developer</h3>
+                            <p>Joined TRUSTT (formerly Novopay) as an Angular frontend developer. Knew nothing about enterprise banking — LMS, LOS, LCS were just acronyms.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-timeline">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line"></div>
+                        </div>
+                        <div class="story-content">
+                            <span class="story-label">Day 30</span>
+                            <h3>Shipping Backend Features</h3>
+                            <p>Instead of pushing back on backend tasks, I dove in. Created centralized dependency management across 17 microservices. Became full-stack by doing, not by title.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-timeline">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line"></div>
+                        </div>
+                        <div class="story-content">
+                            <span class="story-label">Month 6</span>
+                            <h3>Working with Aadhaar's CTO</h3>
+                            <p>Collaborated directly with <strong>Srikanth Nadhamuni</strong> (Founder CTO of Aadhaar, Director at TRUSTT) to build automation pipelines from PRD to testing.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-timeline">
+                            <div class="timeline-dot highlight"></div>
+                        </div>
+                        <div class="story-content">
+                            <span class="story-label">Today</span>
+                            <h3>AI-Augmented Pioneer</h3>
+                            <p>First engineer to introduce Cursor, Claude Code, Codex, and Antigravity into enterprise banking workflows. Building AI systems that push boundaries.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-highlight">
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>My Belief</h3>
+                        <p>"Enterprise Java developers should lead the AI engineering wave — not watch from the sidelines."</p>
+                        <div class="highlight-glow"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <span class="section-tag section-tag-end">&lt;/about&gt;</span>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section experience" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">&lt;experience&gt;</span>
+                <h2 class="section-title">Where I've Built</h2>
+            </div>
+            
+            <div class="experience-grid">
+                <!-- TRUSTT -->
+                <div class="exp-card exp-card-featured">
+                    <div class="exp-header">
+                        <div class="exp-company">
+                            <h3>TRUSTT</h3>
+                            <span class="exp-formerly">(formerly Novopay)</span>
+                        </div>
+                        <span class="exp-date">2024 — Present</span>
+                    </div>
+                    
+                    <div class="exp-role">
+                        <span class="role-badge">Current</span>
+                        <h4>Software Development Engineer — Full-Stack</h4>
+                    </div>
+                    
+                    <div class="exp-highlights">
+                        <div class="exp-highlight">
+                            <i class="fas fa-user-tie"></i>
+                            <p>Direct collaboration with <strong>Srikanth Nadhamuni</strong> (Founder CTO of Aadhaar) on PRD-to-testing automation</p>
+                        </div>
+                        <div class="exp-highlight">
+                            <i class="fas fa-cube"></i>
+                            <p>Architected Stamp Duty & NRLM features end-to-end across LMS, LOS, LCS systems</p>
+                        </div>
+                        <div class="exp-highlight">
+                            <i class="fas fa-robot"></i>
+                            <p>Pioneered AI tool adoption: Cursor, Claude Code, Codex, Antigravity in regulated banking</p>
+                        </div>
+                        <div class="exp-highlight">
+                            <i class="fas fa-server"></i>
+                            <p>Created dependency management across 17 microservices (Nexus Repository)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exp-tech">
+                        <span>Angular</span>
+                        <span>Java</span>
+                        <span>Spring Boot</span>
+                        <span>PostgreSQL</span>
+                        <span>Claude Code</span>
+                        <span>Cursor</span>
+                    </div>
+                    
+                    <div class="exp-glow"></div>
+                </div>
+                
+                <!-- Pieworks -->
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div class="exp-company">
+                            <h3>Pieworks</h3>
+                        </div>
+                        <span class="exp-date">2023 — 2024</span>
+                    </div>
+                    
+                    <div class="exp-role">
+                        <span class="role-badge founding">Founding</span>
+                        <h4>Founding Engineer — Full-Stack</h4>
+                    </div>
+                    
+                    <div class="exp-highlights">
+                        <div class="exp-highlight">
+                            <i class="fas fa-cloud"></i>
+                            <p>Redesigned cloud infrastructure with EC2, RDS, S3, ELB — improved performance & fault tolerance</p>
+                        </div>
+                        <div class="exp-highlight">
+                            <i class="fas fa-code"></i>
+                            <p>Built V2 frontend & backend for ATS solution — client & talent login systems</p>
+                        </div>
+                        <div class="exp-highlight">
+                            <i class="fas fa-mobile-alt"></i>
+                            <p>Developed PWA now live on Google Play Store</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exp-tech">
+                        <span>React</span>
+                        <span>AWS</span>
+                        <span>Docker</span>
+                        <span>Kubernetes</span>
+                        <span>Node.js</span>
+                    </div>
+                </div>
+            </div>
+            
+            <span class="section-tag section-tag-end">&lt;/experience&gt;</span>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">&lt;projects&gt;</span>
+                <h2 class="section-title">AI Systems I've Built</h2>
+                <p class="section-subtitle">Open source projects pushing the boundaries of AI engineering</p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- ai-rag-java -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Himanshusinghtomar/ai-rag-java" target="_blank" rel="noopener" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <h3 class="project-title">ai-rag-java</h3>
+                    <p class="project-description">
+                        Production-ready RAG (Retrieval-Augmented Generation) pipeline built in Java using Spring AI. One of the few RAG implementations in Java — because enterprise developers shouldn't have to learn Python to build AI systems.
+                    </p>
+                    
+                    <div class="project-features">
+                        <span><i class="fas fa-check"></i> Document Ingestion</span>
+                        <span><i class="fas fa-check"></i> Vector Storage</span>
+                        <span><i class="fas fa-check"></i> Semantic Search</span>
+                        <span><i class="fas fa-check"></i> LLM Integration</span>
+                    </div>
+                    
+                    <div class="project-tech">
+                        <span>Java</span>
+                        <span>Spring AI</span>
+                        <span>Vector DB</span>
+                        <span>LLMs</span>
+                    </div>
+                    
+                    <div class="project-glow"></div>
+                </div>
+                
+                <!-- skill-security-audit -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Himanshusinghtomar/skill-security-audit" target="_blank" rel="noopener" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <h3 class="project-title">skill-security-audit</h3>
+                    <p class="project-description">
+                        Security auditing tool for AI agent skill definitions. Scans for prompt injection vulnerabilities, privilege escalation risks, and unsafe patterns in agent configurations. Built for the emerging AI safety space.
+                    </p>
+                    
+                    <div class="project-features">
+                        <span><i class="fas fa-check"></i> Prompt Injection Detection</span>
+                        <span><i class="fas fa-check"></i> Privilege Analysis</span>
+                        <span><i class="fas fa-check"></i> Risk Scoring</span>
+                        <span><i class="fas fa-check"></i> CI/CD Integration</span>
+                    </div>
+                    
+                    <div class="project-tech">
+                        <span>AI Safety</span>
+                        <span>Security</span>
+                        <span>Agents</span>
+                        <span>OWASP</span>
+                    </div>
+                    
+                    <div class="project-glow"></div>
+                </div>
+                
+                <!-- AgentBridge -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Himanshusinghtomar/AgentBridge" target="_blank" rel="noopener" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <h3 class="project-title">AgentBridge</h3>
+                    <p class="project-description">
+                        Framework enabling standardized communication between AI agents and application components. Think of it as a protocol layer that lets different AI agents work together seamlessly in enterprise environments.
+                    </p>
+                    
+                    <div class="project-features">
+                        <span><i class="fas fa-check"></i> Agent Orchestration</span>
+                        <span><i class="fas fa-check"></i> Protocol Layer</span>
+                        <span><i class="fas fa-check"></i> Multi-Agent Support</span>
+                        <span><i class="fas fa-check"></i> Enterprise Ready</span>
+                    </div>
+                    
+                    <div class="project-tech">
+                        <span>AI Agents</span>
+                        <span>MCP</span>
+                        <span>Orchestration</span>
+                        <span>Framework</span>
+                    </div>
+                    
+                    <div class="project-glow"></div>
+                </div>
+            </div>
+            
+            <div class="projects-cta">
+                <a href="https://github.com/Himanshusinghtomar" target="_blank" rel="noopener" class="btn btn-outline">
+                    <i class="fab fa-github"></i>
+                    <span>View All on GitHub</span>
+                </a>
+            </div>
+            
+            <span class="section-tag section-tag-end">&lt;/projects&gt;</span>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">&lt;skills&gt;</span>
+                <h2 class="section-title">Tech Arsenal</h2>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-category-header">
+                        <i class="fas fa-robot"></i>
+                        <h3>AI Tools & LLMs</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag featured">Claude Code</span>
+                        <span class="skill-tag featured">Cursor</span>
+                        <span class="skill-tag">GitHub Copilot</span>
+                        <span class="skill-tag">Codex</span>
+                        <span class="skill-tag">Antigravity</span>
+                        <span class="skill-tag">RAG</span>
+                        <span class="skill-tag">AI Agents</span>
+                        <span class="skill-tag">Prompt Engineering</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-category-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Languages</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-category-header">
+                        <i class="fas fa-layer-group"></i>
+                        <h3>Frameworks</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">Angular</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Spring AI</span>
+                        <span class="skill-tag">REST APIs</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-category-header">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Cloud & DevOps</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">YugabyteDB</span>
+                        <span class="skill-tag">Git</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-category-header">
+                        <i class="fas fa-university"></i>
+                        <h3>Domain</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Banking Technology</span>
+                        <span class="skill-tag">LMS</span>
+                        <span class="skill-tag">LOS</span>
+                        <span class="skill-tag">LCS</span>
+                        <span class="skill-tag">Fintech</span>
+                    </div>
+                </div>
+            </div>
+            
+            <span class="section-tag section-tag-end">&lt;/skills&gt;</span>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-text">
+                    <span class="section-tag">&lt;contact&gt;</span>
+                    <h2 class="contact-title">Let's Build Something</h2>
+                    <p class="contact-description">
+                        Always open to conversations about AI-augmented development, enterprise AI adoption, and what happens when you stop treating AI tools as shortcuts and start treating them as collaborators.
+                    </p>
+                </div>
+                
+                <div class="contact-links">
+                    <a href="mailto:himanshusinghtomardev@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>himanshusinghtomardev@gmail.com</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/himanshu-singh-tomar/" target="_blank" rel="noopener" class="contact-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/Himanshusinghtomar" target="_blank" rel="noopener" class="contact-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+                
+                <div class="contact-cta">
+                    <a href="mailto:himanshusinghtomardev@gmail.com" class="btn btn-primary btn-large">
+                        <span>Send me a message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </a>
+                </div>
+                
+                <span class="section-tag section-tag-end">&lt;/contact&gt;</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-bracket">&lt;</span>HST<span class="logo-bracket">/&gt;</span>
+                </div>
+                <p class="footer-tagline">Building the future with AI-augmented development</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/himanshu-singh-tomar/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Himanshusinghtomar" target="_blank" rel="noopener" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:himanshusinghtomardev@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                <p class="footer-copyright">
+                    &copy; 2025 Himanshu Singh Tomar. Crafted with <span class="heart">❤</span> and AI tools.
+                </p>
+            </div>
+        </div>
     </footer>
-    <!-- Font script-->
-    <script src="https://kit.fontawesome.com/4826ad4d82.js" crossorigin="anonymous"></script>
+
+    <script src="/scripts/script.js"></script>
 </body>
 </html>
